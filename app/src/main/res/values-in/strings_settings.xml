@@ -113,4 +113,11 @@
     <string name="appearance_dark">Selalu gelap</string>
     <string name="settings_self_config">Biarkan LeSa mengubah pengaturannya sendiri</string>
     <string name="settings_self_config_sub">Jika aktif, tugas mendapat satu alat untuk membaca dan mengubah preferensi ini (kecepatan, bisu, kapsul, tampilan, layar menyala). Model, kunci API, jaringan kontainer, dan apa pun yang menghapus data tidak pernah disertakan</string>
+    <string name="captcha_title">Penyelesaian captcha</string>
+    <string name="captcha_row_sub">Captcha gambar diselesaikan dulu dengan EveryInfra, baru diserahkan ke Anda jika gagal</string>
+    <string name="captcha_hint">Tempel kunci API EveryInfra Anda. Biaya hanya saat captcha berhasil diselesaikan (sekitar $0,001–0,0025 per kali); gagal gratis. Maksimal 5 kali per tugas. Kosongkan untuk mematikan dan menyelesaikan captcha sendiri.</string>
+    <string name="captcha_get_key">Buat kunci di EveryInfra</string>
+    <string name="captcha_risk">Menyelesaikan captcha otomatis bisa melanggar ketentuan sebagian aplikasi atau situs. Untuk akun penting, selesaikan sendiri.</string>
+    <string name="captcha_on">Aktif</string>
+    <string name="captcha_key_label">Kunci API</string>
 </resources>

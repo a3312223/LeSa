@@ -113,4 +113,11 @@
     <string name="appearance_dark">常にダーク</string>
     <string name="settings_self_config">LeSa に自分の設定を変更させる</string>
     <string name="settings_self_config_sub">オンにすると、タスクがこれらの設定(ペース、ミュート、カプセル、外観、画面オン)を読み取り・変更するツールを 1 つ使えるようになります。モデル、API キー、コンテナのネットワーク、データを削除するものは含まれません</string>
+    <string name="captcha_title">認証コードの自動解決</string>
+    <string name="captcha_row_sub">画像の認証コードはまず EveryInfra で自動解決し、できなければあなたに任せます</string>
+    <string name="captcha_hint">EveryInfra の API キーを入力します。解決できたときだけ課金され（1 回あたり約 0.001〜0.0025 ドル）、失敗は無料です。1 タスクにつき最大 5 回。空欄でオフになり、認証コードは従来どおりあなたに任せます。</string>
+    <string name="captcha_get_key">EveryInfra でキーを作成</string>
+    <string name="captcha_risk">認証コードの自動解決は一部のアプリやサイトの規約に反する場合があります。大切なアカウントでは手動で対応してください。</string>
+    <string name="captcha_on">オン</string>
+    <string name="captcha_key_label">API キー</string>
 </resources>

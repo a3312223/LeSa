@@ -31,13 +31,14 @@ internal object HandleObstacle : SurfaceAware {
         val k = a.str("kind")!!
         if (k !in BARRIER_KINDS) throw ArgError("kind", "must be one of ${BARRIER_KINDS.joinToString("|")}")
         a.str("reason", max = 300)
-        return ok { put("kind", k); put("hint", hint(k)) }
+        return ok { put("kind", k); put("hint", hint(k, solver = ctx.config.captcha != null)) }
     }
 
-    private fun hint(kind: String): String = when (kind) {
+    /** [solver]:设置里接了验证码识别时,验证码先让 solve_captcha 试,不行再交给用户。 */
+    private fun hint(kind: String, solver: Boolean): String = when (kind) {
         "popup" -> Feedback["barrier.popup"]
         "login" -> Feedback["barrier.login"]
-        "captcha" -> Feedback["barrier.captcha"]
+        "captcha" -> if (solver) Feedback["barrier.captcha_solver"] else Feedback["barrier.captcha"]
         "access_blocked" -> Feedback["barrier.access_blocked"]
         else -> Feedback["barrier.payment"]
     }

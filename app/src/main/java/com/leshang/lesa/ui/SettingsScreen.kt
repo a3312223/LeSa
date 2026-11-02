@@ -126,6 +126,11 @@ fun SettingsScreen(
         if (proxy == null) proxy = withContext(Dispatchers.IO) { proxies.get() }
         browserProxy = withContext(Dispatchers.IO) { WebProxy.mode() }
     }
+    // 验证码识别的密钥:读要解密,放到后台
+    val captchaKeys = remember { com.leshang.lesa.settings.CaptchaKeyStore.get(context) }
+    var captchaKey by remember { mutableStateOf<String?>(null) }
+    var editingCaptcha by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) { captchaKey = withContext(Dispatchers.IO) { captchaKeys.get() } }
     val mcp = remember { (context.applicationContext as com.leshang.lesa.LeSaApp).mcp }
     val mcpNetworkOn by mcp.settings.enabled.collectAsState()
     val mcpUsbOn by mcp.usb.enabled.collectAsState()
@@ -169,6 +174,7 @@ fun SettingsScreen(
             mainModel = roles.main?.let { id -> configs.firstOrNull { it.id == id } }?.let(ProviderConnection::displayName),
             onBack = onBack, onProblem = onProblem, onOpenModels = onOpenModels,
             proxy = proxy, proxyNote = proxy?.let { NetProxyCopy.subtitle(it, browserProxy) }, onOpenProxy = { editingProxy = true },
+            captchaKey = captchaKey, onOpenCaptcha = { editingCaptcha = true },
             usageTokens = usageWeek, onOpenUsage = { page = SettingsPage.Usage },
             onOpenPhoneOps = { page = SettingsPage.PhoneOps },
             onOpenAppAccess = { page = SettingsPage.AppAccess },
@@ -223,6 +229,18 @@ fun SettingsScreen(
         SettingsPage.RunStats -> RunStatsScreen(remember { RunStore(context).metrics }, onBack = back)
     }
 
+    if (editingCaptcha) CaptchaKeyDialog(
+        initial = captchaKey.orEmpty(),
+        onDismiss = { editingCaptcha = false },
+        onSave = { v ->
+            scope.launch {
+                withContext(Dispatchers.IO) { captchaKeys.set(v) }
+                captchaKey = v.trim()
+                editingCaptcha = false
+            }
+        },
+    )
+
     if (editingProxy) NetProxyDialog(
         initial = proxy.orEmpty(),
         onDismiss = { editingProxy = false },
@@ -271,6 +289,9 @@ fun SettingsContent(
     /** 网络代理那一行下面的说明。 */
     proxyNote: String? = null,
     onOpenProxy: () -> Unit = {},
+    /** 验证码识别的密钥(空串表示没填);为空(还没读出来)时不显示这一行。 */
+    captchaKey: String? = null,
+    onOpenCaptcha: () -> Unit = {},
     /** 近 7 天用了多少 token;为空(还没统计出来)时不显示这一行。 */
     usageTokens: Long? = null,
     onOpenUsage: () -> Unit = {},
@@ -316,6 +337,12 @@ fun SettingsContent(
             proxy?.let {
                 ListRow(LeSaIcons.Link, NetProxyCopy.TITLE, proxyNote, onClick = onOpenProxy) {
                     RowValue(NetProxyCopy.value(it))
+                    RowChevron()
+                }
+            }
+            captchaKey?.let {
+                ListRow(LeSaIcons.Shield, CaptchaCopy.TITLE, CaptchaCopy.ROW_SUB, onClick = onOpenCaptcha) {
+                    RowValue(CaptchaCopy.value(it))
                     RowChevron()
                 }
             }

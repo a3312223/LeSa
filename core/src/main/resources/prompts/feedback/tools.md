@@ -336,6 +336,33 @@ This step needs sign-in. Call hand_to_user with reason login so the user can sig
 ## barrier.captcha
 Do not try to solve the verification yourself. Call hand_to_user with reason captcha so the user can clear it, then observe again.
 
+## barrier.captcha_solver
+Try solve_captcha first if it is a picture you can see: text to type, things to tap in order, a picture to turn upright, or a slider with a gap. Give it the box around the whole puzzle picture, act on the answer with the screen tools, then observe again. If the same puzzle is still there after 2 tries, or it is a checkbox (我不是机器人 / I'm not a robot), a sign-in, an SMS code or anything else, call hand_to_user with reason captcha so the user can clear it.
+
+## captcha.limit
+Captcha solving is used up for this task ({{max}} tries). Call hand_to_user with reason captcha so the user can clear it.
+
+## captcha.no_image_ops
+Cannot cut the captcha out of the screen here. Call hand_to_user with reason captcha.
+
+## captcha.failed
+The captcha service could not solve it: {{error}}. You may try once more with a tighter box around the picture; otherwise call hand_to_user with reason captcha. Do not retry when the key is wrong or the balance has run out.
+
+## captcha.next_text
+Type answer into the captcha input box with the type tool, then tap the confirm button and observe again.
+
+## captcha.next_question
+Type answer into the answer box with the type tool, then tap the confirm button and observe again.
+
+## captcha.next_click
+Tap each point in points with tap x/y, in this order, then tap the confirm button if there is one, and observe again.
+
+## captcha.next_rotate
+Turn the picture clockwise by clockwiseDegrees: usually drag the slider under it to the right, by about clockwiseDegrees/360 of the slider track. Then observe again.
+
+## captcha.next_slider
+Swipe from the center of the slider handle to the right by dragRight (same 0-999 scale as the screen), slowly, then observe again.
+
 ## barrier.access_blocked
 Do not retry and do not look for another way around it. Call hand_to_user with reason access_blocked so the user can deal with it, or call end_not_done with subtype blocked and say exactly what the screen shows.
 

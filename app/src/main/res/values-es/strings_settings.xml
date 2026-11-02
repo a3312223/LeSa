@@ -121,4 +121,11 @@
     <string name="appearance_dark">Siempre oscuro</string>
     <string name="settings_self_config">Dejar que LeSa cambie sus propios ajustes</string>
     <string name="settings_self_config_sub">Si está activado, las tareas tienen una herramienta para leer y cambiar estas preferencias (ritmo, silencio, cápsula, apariencia, pantalla encendida). Nunca se incluyen los modelos, las claves de API, la red del contenedor ni nada que elimine datos</string>
+    <string name="captcha_title">Resolver captchas</string>
+    <string name="captcha_row_sub">Resuelve primero los captchas de imagen con EveryInfra y te los pasa solo si falla</string>
+    <string name="captcha_hint">Pega tu clave de API de EveryInfra. Solo pagas cuando se resuelve (unos 0,001–0,0025 $ cada uno); los fallos son gratis. Máximo 5 por tarea. Déjalo vacío para desactivarlo y resolver los captchas tú.</string>
+    <string name="captcha_get_key">Crear una clave en EveryInfra</string>
+    <string name="captcha_risk">Resolver captchas automáticamente puede incumplir las condiciones de algunas apps o sitios. En cuentas importantes, resuélvelos tú.</string>
+    <string name="captcha_on">Activado</string>
+    <string name="captcha_key_label">Clave de API</string>
 </resources>

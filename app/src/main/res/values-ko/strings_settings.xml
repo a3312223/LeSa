@@ -113,4 +113,11 @@
     <string name="appearance_dark">항상 다크</string>
     <string name="settings_self_config">LeSa가 자신의 설정을 바꾸도록 허용</string>
     <string name="settings_self_config_sub">켜면 작업에서 이 환경설정(속도, 음소거, 캡슐, 화면 모드, 화면 켜 두기)을 읽고 바꾸는 도구를 하나 쓸 수 있어요. 모델, API 키, 컨테이너 네트워크, 데이터를 삭제하는 항목은 포함되지 않아요</string>
+    <string name="captcha_title">캡차 자동 풀기</string>
+    <string name="captcha_row_sub">그림 캡차는 먼저 EveryInfra로 자동으로 풀고, 안 되면 직접 처리하도록 넘겨요</string>
+    <string name="captcha_hint">EveryInfra API 키를 입력하세요. 풀었을 때만 요금이 나가고(회당 약 $0.001–0.0025) 실패는 무료예요. 작업 하나당 최대 5회. 비워 두면 꺼지고 캡차는 예전처럼 직접 처리해요.</string>
+    <string name="captcha_get_key">EveryInfra에서 키 만들기</string>
+    <string name="captcha_risk">캡차를 자동으로 푸는 것은 일부 앱이나 사이트의 약관에 어긋날 수 있어요. 중요한 계정은 직접 처리하세요.</string>
+    <string name="captcha_on">켜짐</string>
+    <string name="captcha_key_label">API 키</string>
 </resources>

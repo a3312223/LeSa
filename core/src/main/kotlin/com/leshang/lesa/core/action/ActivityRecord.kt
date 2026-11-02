@@ -14,7 +14,7 @@ import kotlinx.serialization.json.contentOrNull
 internal object ActivityRecord {
     private val controls = setOf(
         Verb.Wait, Verb.AskUser, Verb.RequestConfirmation, Verb.HandToUser,
-        Verb.HandleObstacle, Verb.EndNotDone,
+        Verb.HandleObstacle, Verb.SolveCaptcha, Verb.EndNotDone,
     )
     // 元素编号(ref)只对模型有意义,不当作给人看的对象
     private val targetKeys = listOf("package", "url", "path", "query")

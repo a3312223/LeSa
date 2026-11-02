@@ -113,4 +113,11 @@
     <string name="appearance_dark">一直深色</string>
     <string name="settings_self_config">允許 LeSa 改自己的設定</string>
     <string name="settings_self_config_sub">打開後，任務裡會多一件工具，能看和改這些偏好（操作節奏、靜音、膠囊、外觀、螢幕常亮）。模型和 Key、容器聯網、任何刪資料的操作都不在其中</string>
+    <string name="captcha_title">驗證碼識別</string>
+    <string name="captcha_row_sub">遇到圖形驗證碼先用 EveryInfra 自動識別，識別不了再交給你</string>
+    <string name="captcha_hint">填寫 EveryInfra 的 API 金鑰。只有識別成功才扣費（每次約 ¥0.006–0.017），失敗不扣；同一個任務最多識別 5 次。留空即關閉，驗證碼照舊交給你。</string>
+    <string name="captcha_get_key">前往 EveryInfra 建立金鑰</string>
+    <string name="captcha_risk">自動通過驗證碼可能違反部分 App 或網站的使用條款，重要帳號建議手動處理。</string>
+    <string name="captcha_on">已開啟</string>
+    <string name="captcha_key_label">API 金鑰</string>
 </resources>

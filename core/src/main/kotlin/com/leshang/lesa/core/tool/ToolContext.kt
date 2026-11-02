@@ -44,6 +44,8 @@ internal class ToolConfig(
     val selfConfig: com.leshang.lesa.core.settings.SelfConfig? = null,
     /** 存下的运行记录;给了、而这个对话之前有记过运行的轮次时提供 history_read。 */
     val runRecords: com.leshang.lesa.core.record.RunRecords? = null,
+    /** 识别验证码的服务;设置里填了密钥才有,没有时不提供 solve_captcha,验证码照旧交给用户。 */
+    val captcha: com.leshang.lesa.core.captcha.CaptchaSolver? = null,
 )
 
 /**

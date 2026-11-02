@@ -30,7 +30,7 @@ enum class Verb {
     SetAlarm, SetTimer, ShowAlarms, AddCalendarEvent, SetWheel,
     Navigate, ReadPage, EvaluateJs, SiteCommand, Tabs, Downloads, Upload, SiteMode, Script, Interact, Capture, WaitFor, KeepOpen,
     RunCommand, RunBundledScript, ReadFile, WriteFile, SearchFiles, ShareFile,
-    Wait, AskUser, RequestConfirmation, HandToUser, HandleObstacle, EndNotDone,
+    Wait, AskUser, RequestConfirmation, HandToUser, HandleObstacle, SolveCaptcha, EndNotDone,
     KnowledgeSearch, KnowledgeRead, SkillSearch, SkillRead, SkillSave, MemorySearch, MemorySave, ProfileEdit, HistoryRead,
     ScheduleTask,
     SpawnAgent, SettingsList, SettingsSet,

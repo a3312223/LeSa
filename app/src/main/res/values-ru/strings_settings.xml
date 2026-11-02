@@ -125,4 +125,11 @@
     <string name="appearance_dark">Всегда тёмное</string>
     <string name="settings_self_config">Разрешить LeSa менять свои настройки</string>
     <string name="settings_self_config_sub">Когда включено, у задач появляется один инструмент для чтения и изменения этих настроек (темп, звук, капсула, оформление, экран не гаснет). Модели, ключи API, сеть контейнера и всё, что удаляет данные, никогда не включаются</string>
+    <string name="captcha_title">Решение капчи</string>
+    <string name="captcha_row_sub">Сначала решает капчу-картинку через EveryInfra и передаёт её вам, только если не вышло</string>
+    <string name="captcha_hint">Вставьте API-ключ EveryInfra. Оплата только за решённую капчу (около $0,001–0,0025), неудачи бесплатны. Не больше 5 раз за задачу. Оставьте пустым, чтобы выключить и решать капчу самому.</string>
+    <string name="captcha_get_key">Создать ключ в EveryInfra</string>
+    <string name="captcha_risk">Автоматическое решение капчи может нарушать условия некоторых приложений и сайтов. Для важных аккаунтов решайте сами.</string>
+    <string name="captcha_on">Вкл.</string>
+    <string name="captcha_key_label">API-ключ</string>
 </resources>

@@ -1,4 +1,4 @@
-<!-- translated-from: README.md @ 960f4051ce73 -->
+<!-- translated-from: README.md @ aa8a305ddffc -->
 <div align="center">
 
 <img src="../media/logo.png" alt="LeSa" width="88" />

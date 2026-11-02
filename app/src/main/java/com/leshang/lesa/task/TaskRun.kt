@@ -739,7 +739,10 @@ class TaskRun(
                 // 用户要求时写下或改写个人技能(和自学收下的放在同一处,设置里立刻能看到)
                 personalSkills = memoryRuntime.skills(),
                 // 这个对话之前几轮的运行记录(只读;history_read 只认 runSpec 里这个对话的轮次)
-                runRecords = RunStore(service).reader())
+                runRecords = RunStore(service).reader(),
+                // 设置里填了 EveryInfra 的密钥才接上验证码识别;没填时验证码照旧交给用户
+                captcha = com.leshang.lesa.settings.CaptchaKeyStore.get(service).takeIf { it.get().isNotBlank() }
+                    ?.let { store -> com.leshang.lesa.core.captcha.EveryInfraSolver(store::get) })
             dispatcher = tools
             val agent = AgentLoop(
                 model, tools,

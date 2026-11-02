@@ -126,4 +126,11 @@
     <string name="appearance_dark">Always dark</string>
     <string name="settings_self_config">Let LeSa change its own settings</string>
     <string name="settings_self_config_sub">When on, tasks get one tool to read and change these preferences (pace, mute, capsule, appearance, screen-on). Models, API keys, container network and anything that deletes data are never included</string>
+    <string name="captcha_title">Captcha solving</string>
+    <string name="captcha_row_sub">Solve picture captchas with EveryInfra first; hand them to you only if that fails</string>
+    <string name="captcha_hint">Paste your EveryInfra API key. You pay only when a captcha is solved (about $0.001–0.0025 each); failures are free. At most 5 solves per task. Leave it empty to turn this off and handle captchas yourself.</string>
+    <string name="captcha_get_key">Get a key at EveryInfra</string>
+    <string name="captcha_risk">Solving captchas automatically may break some apps\' or sites\' terms. Clear captchas yourself on accounts that matter.</string>
+    <string name="captcha_on">On</string>
+    <string name="captcha_key_label">API key</string>
 </resources>
