@@ -1,5 +1,6 @@
 package com.leshang.lesa.core.general
 
+import com.leshang.lesa.core.prompt.Feedback
 import com.leshang.lesa.core.prompt.Prompts
 import com.leshang.lesa.core.tool.AgentTool
 import com.leshang.lesa.core.tool.ArgError
@@ -85,6 +86,8 @@ internal object HandToUser : SurfaceAware {
         val raw = a.str("reason")!!
         val r = TAKEOVER_REASON_ALIASES[raw] ?: raw
         if (r !in TAKEOVER_REASONS) throw ArgError("reason", "must be one of ${TAKEOVER_REASONS.joinToString("|")}")
+        // 设置里接了验证码识别、这个任务还没试过时,验证码先让 solve_captcha 试,不直接交给用户
+        if (r == "captcha" && SolveCaptcha.available(ctx) && !SolveCaptcha.tried(ctx)) return fail("try_solve_captcha", Feedback["captcha.try_first"])
         val m = a.str("message", max = 1000)!!
         // 付款:模型没写的项用之前被拒的付款申报里的
         val declared = ctx.refusedPay.takeIf { r == "payment" }

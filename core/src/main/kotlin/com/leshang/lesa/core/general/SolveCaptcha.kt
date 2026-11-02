@@ -72,6 +72,9 @@ internal object SolveCaptcha : SurfaceAware {
 
     override fun available(ctx: ToolContext) = ctx.config.captcha != null
 
+    /** 这个任务里调过识别没有(不论成败);交给用户前据此判断先试过没有。 */
+    fun tried(ctx: ToolContext): Boolean = (ctx[USES]?.n ?: 0) > 0
+
     override suspend fun execute(a: Args, ctx: ToolContext): ToolExecution {
         checkSurface(a, ctx)
         val kind = a.str("kind")!!
@@ -82,7 +85,7 @@ internal object SolveCaptcha : SurfaceAware {
 
         val request: Pair<String, JsonObject>
         var box: IntArray? = null
-        var sentWidth = 0
+        var sent = 0 to 0
         if (kind == "question") {
             val q = a.str("instruction", max = 500) ?: throw ArgError("instruction", "required for question: copy the question text")
             request = "text_captcha" to buildJsonObject { put("question", q) }
@@ -90,8 +93,8 @@ internal object SolveCaptcha : SurfaceAware {
             box = a.box("left", "top", "right", "bottom")
             val png = shot(ctx) ?: return protectedOrMissing(ctx)
             val ops = ctx.config.imageOps ?: return fail("captcha_unavailable", Feedback["captcha.no_image_ops"])
-            val (img, w) = encode(ops, ops.crop(png, box))
-            sentWidth = w
+            val (img, size) = encode(ops, ops.crop(png, box))
+            sent = size
             request = when (kind) {
                 "text" -> "image" to buildJsonObject {
                     put("body", img)
@@ -125,7 +128,7 @@ internal object SolveCaptcha : SurfaceAware {
         }
         return ok {
             put("kind", kind)
-            fill(this, kind, answer, box, sentWidth)
+            fill(this, kind, answer, box, sent)
             answer.cny?.let { put("costCny", it) }
             answer.requestId?.let { put("requestId", it) }
             put("triesLeft", MAX_PER_TASK - uses.n)
@@ -143,20 +146,22 @@ internal object SolveCaptcha : SurfaceAware {
     }
 
     /** 把服务的答案换成模型能直接用的:文字原样;点、距离从小图的像素换回整屏 0-999。 */
-    private fun fill(b: kotlinx.serialization.json.JsonObjectBuilder, kind: String, r: CaptchaAnswer, box: IntArray?, sentWidth: Int) {
+    private fun fill(b: kotlinx.serialization.json.JsonObjectBuilder, kind: String, r: CaptchaAnswer, box: IntArray?, sent: Pair<Int, Int>) {
         val s = r.solution
         when (kind) {
             "text", "question" -> b.put("answer", r.token ?: s.str("text").orEmpty())
             "rotate" -> b.put("clockwiseDegrees", s.num("angle")?.roundToInt() ?: 0)
             "click" -> {
                 val bx = box!!
-                val scale = (bx[2] - bx[0]).toDouble() / sentWidth.coerceAtLeast(1)
+                // 0-999 是按整屏宽、高各自分的,横竖要分开换算
+                val sx = (bx[2] - bx[0]).toDouble() / sent.first.coerceAtLeast(1)
+                val sy = (bx[3] - bx[1]).toDouble() / sent.second.coerceAtLeast(1)
                 val points = (s["coordinates"] as? JsonArray).orEmpty().mapNotNull { p -> point(p) }
                 b.put("points", buildJsonArray {
                     points.forEach { (x, y) ->
                         add(buildJsonArray {
-                            add(JsonPrimitive((bx[0] + x * scale).roundToInt().coerceIn(0, 999)))
-                            add(JsonPrimitive((bx[1] + y * scale).roundToInt().coerceIn(0, 999)))
+                            add(JsonPrimitive((bx[0] + x * sx).roundToInt().coerceIn(0, 999)))
+                            add(JsonPrimitive((bx[1] + y * sy).roundToInt().coerceIn(0, 999)))
                         })
                     }
                 })
@@ -164,7 +169,7 @@ internal object SolveCaptcha : SurfaceAware {
             else -> {
                 val bx = box!!
                 val px = s.num("distance") ?: 0.0
-                b.put("dragRight", (px * (bx[2] - bx[0]) / sentWidth.coerceAtLeast(1)).roundToInt())
+                b.put("dragRight", (px * (bx[2] - bx[0]) / sent.first.coerceAtLeast(1)).roundToInt())
             }
         }
     }
@@ -178,10 +183,10 @@ internal object SolveCaptcha : SurfaceAware {
     private fun JsonObject.num(k: String) = (this[k] as? JsonPrimitive)?.doubleOrNull
     private fun JsonObject.str(k: String) = (this[k] as? JsonPrimitive)?.contentOrNull
 
-    /** 图片 base64(不换行、不带 data: 前缀)和发出去那张的宽。太大时先压成 JPEG。 */
-    private fun encode(ops: com.leshang.lesa.core.vision.ImageOps, img: ByteArray): Pair<String, Int> {
+    /** 图片 base64(不换行、不带 data: 前缀)和发出去那张的宽、高。太大时先压成 JPEG。 */
+    private fun encode(ops: com.leshang.lesa.core.vision.ImageOps, img: ByteArray): Pair<String, Pair<Int, Int>> {
         val out = if (img.size > MAX_IMAGE_BYTES) ops.toJpeg(img, maxSide = 1280, quality = 85) else img
-        return Base64.getEncoder().encodeToString(out) to ops.size(out).first
+        return Base64.getEncoder().encodeToString(out) to ops.size(out)
     }
 
     private fun Args.box(l: String, t: String, r: String, b: String): IntArray {

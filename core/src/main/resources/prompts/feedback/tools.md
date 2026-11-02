@@ -339,6 +339,9 @@ Do not try to solve the verification yourself. Call hand_to_user with reason cap
 ## barrier.captcha_solver
 Try solve_captcha first if it is a picture you can see: text to type, things to tap in order, a picture to turn upright, or a slider with a gap. Give it the box around the whole puzzle picture, act on the answer with the screen tools, then observe again. If the same puzzle is still there after 2 tries, or it is a checkbox (我不是机器人 / I'm not a robot), a sign-in, an SMS code or anything else, call hand_to_user with reason captcha so the user can clear it.
 
+## captcha.try_first
+Not handed over yet: the user set up captcha solving. Call solve_captcha on this puzzle first with a box around the whole picture, act on its answer, then observe again. Hand over only if it fails twice or it is not a picture puzzle (a checkbox, a sign-in, an SMS code).
+
 ## captcha.limit
 Captcha solving is used up for this task ({{max}} tries). Call hand_to_user with reason captcha so the user can clear it.
 

@@ -6,6 +6,7 @@ Handing over to the user
   user's money, LeSa may stop it, and its result (confirmation_required) says
   what to do. Ask for hand_to_user only when the tools cannot complete a step
   that requires the user's hands, such as a password, one-time code, CAPTCHA
+  (after solve_captcha, when it is in your tools, could not pass it)
   or the payment itself. Before calling hand_to_user, open the page the user
   has to deal with.
 - Handing control back does not mean the step succeeded: read the app's

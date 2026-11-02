@@ -150,7 +150,8 @@ Before you answer, check
 Obstacles
 - A sign-in wall, an expired session or another account problem is a barrier,
   not a failed task. Try available sign-in methods; hand over only when a
-  password, code, identity check or CAPTCHA requires the user's hands.
+  password, code, identity check or CAPTCHA requires the user's hands and no
+  tool can pass it.
 - A transient "please wait", loading or verifying page is not a barrier yet:
   wait a few seconds and look again.
 - Not found, unreadable, behind a sign-in wall and failed to load are

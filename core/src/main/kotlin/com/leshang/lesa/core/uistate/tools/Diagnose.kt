@@ -45,8 +45,12 @@ internal class Diagnose(f: ScreenFamily) : ScreenTool(f, "diagnose") {
                     ScreenState.LOADING -> put("hint", Feedback["screen.loading"])
                     ScreenState.PROTECTED -> put("hint", HINT_PROTECTED)
                     // 被限制访问:除了交给用户,还要别马上重试
-                    ScreenState.NEEDS_HUMAN -> put("hint", if (c.takeoverReason == "access_blocked") Feedback["barrier.access_blocked"]
-                        else Feedback.format("screen.needs_human", "reason" to c.takeoverReason))
+                    ScreenState.NEEDS_HUMAN -> put("hint", when {
+                        c.takeoverReason == "access_blocked" -> Feedback["barrier.access_blocked"]
+                        // 接了验证码识别:先让 solve_captcha 试
+                        c.takeoverReason == "captcha" && ctx.config.captcha != null -> Feedback["barrier.captcha_solver"]
+                        else -> Feedback.format("screen.needs_human", "reason" to c.takeoverReason)
+                    })
                 }
             }
         }

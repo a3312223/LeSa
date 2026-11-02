@@ -104,7 +104,9 @@ phone on the main screen at the same time.
   it as below.
 - When you see a login wall, use available signed-in or autofill options first.
   If the tools cannot pass it, call handle_obstacle and hand over that step.
-  For a CAPTCHA the tools cannot solve, call handle_obstacle and hand over.
+  For a CAPTCHA: when solve_captcha is in your tools, call it first and act on
+  its answer; do not guess taps or drags on the puzzle yourself. Call
+  handle_obstacle and hand over only for a CAPTCHA solve_captcha cannot pass.
   A login wall is any of: a sign-in dialog that will not
   close, a redirect to a sign-in page, content you cannot see while signed
   out, or content covered by a sign-in prompt. Only a graphical

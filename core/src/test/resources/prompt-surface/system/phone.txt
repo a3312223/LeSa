@@ -170,7 +170,8 @@ Before you answer, check
 Obstacles
 - A sign-in wall, an expired session or another account problem is a barrier,
   not a failed task. Try available sign-in methods; hand over only when a
-  password, code, identity check or CAPTCHA requires the user's hands.
+  password, code, identity check or CAPTCHA requires the user's hands and no
+  tool can pass it.
 - A transient "please wait", loading or verifying page is not a barrier yet:
   wait a few seconds and look again.
 - Not found, unreadable, behind a sign-in wall and failed to load are
@@ -226,6 +227,7 @@ Handing over to the user
   user's money, LeSa may stop it, and its result (confirmation_required) says
   what to do. Ask for hand_to_user only when the tools cannot complete a step
   that requires the user's hands, such as a password, one-time code, CAPTCHA
+  (after solve_captcha, when it is in your tools, could not pass it)
   or the payment itself. Before calling hand_to_user, open the page the user
   has to deal with.
 - Handing control back does not mean the step succeeded: read the app's
@@ -355,7 +357,9 @@ phone on the main screen at the same time.
   it as below.
 - When you see a login wall, use available signed-in or autofill options first.
   If the tools cannot pass it, call handle_obstacle and hand over that step.
-  For a CAPTCHA the tools cannot solve, call handle_obstacle and hand over.
+  For a CAPTCHA: when solve_captcha is in your tools, call it first and act on
+  its answer; do not guess taps or drags on the puzzle yourself. Call
+  handle_obstacle and hand over only for a CAPTCHA solve_captcha cannot pass.
   A login wall is any of: a sign-in dialog that will not
   close, a redirect to a sign-in page, content you cannot see while signed
   out, or content covered by a sign-in prompt. Only a graphical
