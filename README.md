@@ -161,7 +161,7 @@ More answers are in the [FAQ](docs/faq.en.md).
 
 - **Docs**: all docs and a suggested reading order are in the [docs index](docs/README.en.md)
 - **Community**: join the [X group chat](https://x.com/i/chat/group_join/g2116926829198246025/48B52j5svL); to reach the author on WeChat, scan the QR code in the app under About › Contact the author (mention LeSa in your request)
-- **Follow the author**: X [@wangzan101](https://x.com/wangzan101)
+- **Original author**: Mika by X [@wangzan101](https://x.com/wangzan101)
 - **Report a problem**: [open an issue](https://github.com/YOUR_GITHUB/LeSa/issues/new/choose); About › Send feedback in the app can attach diagnostics
 - **Contribute**: add usage knowledge for an app or website (plain text, no code needed), or contribute code; see the [contributing guide](.github/CONTRIBUTING.md)
 

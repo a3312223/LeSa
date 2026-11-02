@@ -7,6 +7,8 @@
 
 **你手机上的 AI 助理：说一句话，它替你操作 App、上网，把事办成。**
 
+<sub>LeSa 基于开源项目 [Mika](https://github.com/wangzan101/Mika)（Apache-2.0）改名而来。</sub>
+
 它在一块看不见的后台屏上干活，你照样刷你的手机。
 
 <a href="https://github.com/YOUR_GITHUB/LeSa/releases/latest"><img src="https://img.shields.io/badge/%E4%B8%8B%E8%BD%BD%20APK-%E5%AE%89%E5%8D%93%2011%2B-2ea043?style=for-the-badge&logo=android&logoColor=white" alt="下载 APK" /></a>
@@ -156,7 +158,7 @@
 
 - **文档**：全部文档和阅读顺序见[文档目录](../README.md)
 - **交流**：App 里「关于 › 联系作者」扫码加作者微信（请备注 LeSa）；不用微信可以加入 [X 群聊](https://x.com/i/chat/group_join/g2116926829198246025/48B52j5svL)
-- **关注作者**：X [@wangzan101](https://x.com/wangzan101)
+- **原作者**：Mika 作者 X [@wangzan101](https://x.com/wangzan101)
 - **反馈问题**：[提 Issue](https://github.com/YOUR_GITHUB/LeSa/issues/new/choose)，App 里「关于 › 反馈问题」可以附上诊断信息
 - **参与贡献**：给某个 App、网站补一份使用知识（纯文本，不用写代码），或者贡献代码，见[贡献指南](../../.github/CONTRIBUTING.zh-CN.md)
 
