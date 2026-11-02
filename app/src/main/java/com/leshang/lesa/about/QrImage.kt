@@ -6,7 +6,7 @@ import android.os.Environment
 import android.provider.MediaStore
 import com.leshang.lesa.R
 
-/** 作者的微信二维码(随 App 打包,换码只换 res/drawable-nodpi/wechat_qr.jpg)。 */
+/** 交流群二维码(随 App 打包,换码只换 res/drawable-nodpi/wechat_qr.jpg)。LeSa 暂未开放交流群,入口已从关于页去掉,这里是空白占位。 */
 object QrImage {
     val RES = R.drawable.wechat_qr
     private const val FILE_NAME = "LeSa-author-wechat.jpg"

@@ -24,7 +24,7 @@ Trabaja en una pantalla en segundo plano que no ves, así que puedes seguir usan
 
 <img src="../media/wechat-send-side.gif" alt="Con una sola frase, LeSa abre WeChat en su pantalla en segundo plano, busca el contacto y envía el mensaje" width="640" />
 
-<sub>Con la frase «Envía un mensaje a Transferencia de archivos»: a la izquierda, la conversación con LeSa; a la derecha, cada paso en su pantalla en segundo plano (a velocidad 4×, con la lista de chats difuminada)</sub>
+<sub>Con la frase «Envía un mensaje a Transferencia de archivos»: a la izquierda, la conversación con LeSa; a la derecha, cada paso en su pantalla en segundo plano (ilustración; todas las imágenes de demostración de esta página son maquetas)</sub>
 
 </div>
 

@@ -21,7 +21,7 @@ English · [简体中文](docs/readme/README.zh-CN.md) · [繁體中文](docs/re
 
 <img src="docs/media/wechat-send-side.gif" alt="From one sentence, LeSa opens WeChat on its background screen, finds the contact and sends the message" width="640" />
 
-<sub>"Send a message to File Transfer": LeSa's chat on the left, each step on its background screen on the right (4× speed; chat list blurred)</sub>
+<sub>"Send a message to File Transfer": LeSa's chat on the left, each step on its background screen on the right (illustration; all demo images on this page are mockups)</sub>
 
 </div>
 

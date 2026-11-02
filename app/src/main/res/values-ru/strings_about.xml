@@ -36,7 +36,7 @@
     <string name="about_guide_sub">С чего начать; можно добавлять знания о приложениях и без программирования</string>
     <string name="about_data_note">Всё, что вы отправляете LeSa (сообщения, содержимое экрана и снимки экрана), уходит только провайдеру модели, которого вы настроили. У LeSa нет собственных серверов, и она не собирает ваши данные; при проверке обновлений обращение идёт только к GitHub.</string>
     <string name="about_license_link">Лицензия Apache-2.0</string>
-    <string name="about_author">Автор: Wang Zan · © 2026</string>
+    <string name="about_author">LeSa · Основано на Mika от Wang Zan</string>
     <string name="about_license_title">Лицензия Apache-2.0</string>
     <string name="about_update_download">Скачать с GitHub</string>
     <string name="about_update_download_in_app">Скачать обновление</string>
