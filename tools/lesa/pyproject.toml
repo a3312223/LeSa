@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lesa-phone-cli"
+version = "0.1.0"
+description = "Command-line client for LeSa's Android task API"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = []
+
+[project.scripts]
+lesa = "lesa_cli:main"
+
+[tool.setuptools]
+py-modules = ["lesa_cli"]
+packages = ["lesa_desk"]
+package-dir = {"" = "scripts"}
+
+[tool.setuptools.package-data]
+lesa_desk = ["*.html", "*.css", "*.js", "lesa-logo.png"]

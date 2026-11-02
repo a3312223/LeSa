@@ -1,0 +1,63 @@
+package com.leshang.lesa.cap.phone.setup
+
+import android.util.Log
+import com.leshang.lesa.cap.phone.shell.HelperHub
+import com.leshang.lesa.capsule.CapsuleMode
+import com.leshang.lesa.core.shell.A11yObservation
+import com.leshang.lesa.core.shell.RecoveryCapability
+import com.leshang.lesa.core.shell.RecoveryConsent
+import com.leshang.lesa.core.shell.RestoreWish
+import com.leshang.lesa.core.shell.RestoreWishSender
+import com.leshang.lesa.shell.ILeSaShell
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapLatest
+import kotlinx.coroutines.launch
+
+/**
+ * 把「LeSa 被杀后要不要拉起来」([RestoreWish])交给内置助手:胶囊模式、有没有任务在跑、「替我打开无障碍」、
+ * 系统列表里有没有 LeSa 的无障碍服务,任一变了、或换了助手,就经 [ILeSaShell.setRestoreWish] 再交一次。
+ * 助手读不到 LeSa 的设置,LeSa 死后只按最后交到的这一份行事。
+ */
+class RestoreWishSync(
+    private val hub: HelperHub,
+    private val capsuleMode: Flow<CapsuleMode>,
+    private val taskRunning: Flow<Boolean>,
+    private val consent: Flow<RecoveryConsent>,
+    private val accessibility: Flow<A11yObservation>,
+) {
+    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
+    private val sender = RestoreWishSender<ILeSaShell> { shell, wish ->
+        runCatching { shell.setRestoreWish(wish.flags) }
+            .onFailure { Log.w(TAG, "cannot hand the restore wish to the helper", it) }
+            .isSuccess
+    }
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    fun start() {
+        var lastOn: Boolean? = null
+        // 列表里没了 LeSa 的服务要过一会儿才交出去:进程被强行停止时系统会先拿掉它,不能让这一下把心愿改掉;
+        // 一直没有(用户在系统设置里关掉了)才不替他写回
+        val accessibilityOn = accessibility.map { it.enabled }.distinctUntilChanged().mapLatest { on ->
+            if (!on && lastOn == true) delay(OFF_SETTLE_MS)
+            lastOn = on
+            on
+        }
+        val wishes = combine(capsuleMode, taskRunning, consent, accessibilityOn) { mode, busy, c, on ->
+            RestoreWish.of(mode == CapsuleMode.Always, busy, c.wants(RecoveryCapability.Accessibility), on)
+        }.distinctUntilChanged()
+        scope.launch { combine(hub.shell, wishes, ::Pair).collect { (shell, wish) -> sender.update(shell, wish) } }
+    }
+
+    private companion object {
+        const val TAG = "LeSaRestoreWish"
+        const val OFF_SETTLE_MS = 3_000L
+    }
+}
