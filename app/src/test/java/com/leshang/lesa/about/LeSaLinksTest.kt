@@ -38,7 +38,7 @@ class LeSaLinksTest {
     @Test
     fun issueUrlIsEncoded() {
         val url = LeSaLinks.issueUrl(device)
-        assertTrue(url.startsWith("https://github.com/YOUR_GITHUB/LeSa/issues/new?title=&body="))
+        assertTrue(url.startsWith("https://github.com/a3312223/LeSa/issues/new?title=&body="))
         val query = url.substringAfter('?')
         assertFalse("no raw spaces or newlines", query.any { it == ' ' || it == '\n' || it == '+' })
         assertFalse("no raw non-ASCII", query.any { it.code > 127 })

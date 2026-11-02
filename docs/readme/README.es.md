@@ -9,11 +9,11 @@
 
 Trabaja en una pantalla en segundo plano que no ves, así que puedes seguir usando el móvil con normalidad.
 
-<a href="https://github.com/YOUR_GITHUB/LeSa/releases/latest"><img src="https://img.shields.io/badge/Descargar%20APK-Android%2011%2B-2ea043?style=for-the-badge&logo=android&logoColor=white" alt="Descargar APK" /></a>
+<a href="https://github.com/a3312223/LeSa/releases/latest"><img src="https://img.shields.io/badge/Descargar%20APK-Android%2011%2B-2ea043?style=for-the-badge&logo=android&logoColor=white" alt="Descargar APK" /></a>
 
-<a href="https://github.com/YOUR_GITHUB/LeSa/stargazers"><img src="https://img.shields.io/github/stars/YOUR_GITHUB/LeSa?style=flat&logo=github&label=Star&color=1f6feb" alt="stars" /></a>
-<a href="https://github.com/YOUR_GITHUB/LeSa/releases"><img src="https://img.shields.io/github/downloads/YOUR_GITHUB/LeSa/total?label=descargas&color=2ea043" alt="downloads" /></a>
-<a href="https://github.com/YOUR_GITHUB/LeSa/releases/latest"><img src="https://img.shields.io/github/v/release/YOUR_GITHUB/LeSa?include_prereleases&label=versi%C3%B3n" alt="version" /></a>
+<a href="https://github.com/a3312223/LeSa/stargazers"><img src="https://img.shields.io/github/stars/a3312223/LeSa?style=flat&logo=github&label=Star&color=1f6feb" alt="stars" /></a>
+<a href="https://github.com/a3312223/LeSa/releases"><img src="https://img.shields.io/github/downloads/a3312223/LeSa/total?label=descargas&color=2ea043" alt="downloads" /></a>
+<a href="https://github.com/a3312223/LeSa/releases/latest"><img src="https://img.shields.io/github/v/release/a3312223/LeSa?include_prereleases&label=versi%C3%B3n" alt="version" /></a>
 <a href="../../LICENSE"><img src="https://img.shields.io/badge/license-Apache--2.0-lightgrey" alt="license" /></a>
 
 [English](../../README.md) · [简体中文](README.zh-CN.md) · [繁體中文](README.zh-Hant.md) · [日本語](README.ja.md) · [한국어](README.ko.md) · Español
@@ -71,14 +71,14 @@ Trabaja en una pantalla en segundo plano que no ves, así que puedes seguir usan
 
 ## Empieza en tres pasos
 
-1. **Instálalo**: descarga el APK desde [Releases](https://github.com/YOUR_GITHUB/LeSa/releases/latest).
+1. **Instálalo**: descarga el APK desde [Releases](https://github.com/a3312223/LeSa/releases/latest).
 2. **Conecta un modelo**: en Ajustes › Modelo, elige un proveedor e introduce una clave de API, o simplemente inicia sesión con una cuenta ([modelos e inicio de sesión](../models.en.md)).
 3. **Para que maneje apps del móvil**: sigue el asistente «Set up phone control» de los ajustes y empareja la depuración inalámbrica una sola vez ([guía de configuración](../setup-guide.en.md)). Si solo quieres chatear, navegar y trabajar con archivos, puedes saltarte este paso.
 
 Después, prueba a decirle: «Pon alarmas mañana a las 9:40 y a las 10:00» o «Mira el tiempo cada mañana a las 8 y avísame solo si va a llover».
 
 > 💡 ¿Tienes un ordenador a mano? Envía esta frase al agente de IA de tu ordenador y lo instalará todo por ti:<br/>
-> `Sigue los pasos de https://github.com/YOUR_GITHUB/LeSa/blob/main/docs/install-with-agent.en.md para instalar LeSa en el móvil Android conectado por USB.`
+> `Sigue los pasos de https://github.com/a3312223/LeSa/blob/main/docs/install-with-agent.en.md para instalar LeSa en el móvil Android conectado por USB.`
 
 ## Qué puede hacer
 
@@ -121,7 +121,7 @@ También puedes prescindir de la clave e iniciar sesión con una cuenta de ChatG
 | Manejar apps del móvil | Android 12 o posterior; **se recomienda Android 14+** (la pantalla en segundo plano tiene su propio foco, así que no interfiere cuando escribes en la pantalla principal) |
 | Sandbox de Linux | Dispositivos arm64 |
 
-¿No sabes si tu móvil sirve? Ejecuta Ajustes › Recuperación y reparación › **Autocomprobación de compatibilidad**: 12 comprobaciones en un minuto, y puedes [enviarnos el resultado](https://github.com/YOUR_GITHUB/LeSa/issues/new?template=device-report.yml) con un toque.
+¿No sabes si tu móvil sirve? Ejecuta Ajustes › Recuperación y reparación › **Autocomprobación de compatibilidad**: 12 comprobaciones en un minuto, y puedes [enviarnos el resultado](https://github.com/a3312223/LeSa/issues/new?template=device-report.yml) con un toque.
 
 ## Privacidad y seguridad
 
@@ -142,7 +142,7 @@ También puedes prescindir de la clave e iniciar sesión con una cuenta de ChatG
 
 **¿La app está en español?** Sí. La interfaz está en español, inglés, chino simplificado, chino tradicional, japonés, coreano, portugués, ruso e indonesio, sigue el idioma del sistema y se puede cambiar en Ajustes › Idioma. Puedes hablarle a LeSa en español sin problema. El conocimiento integrado sobre apps y sitios web está escrito en chino, y el modelo lo entiende sin dificultad.
 
-**¿De dónde vienen las actualizaciones?** Solo de los [Releases](https://github.com/YOUR_GITHUB/LeSa/releases) de este repositorio; también puedes actualizar desde la app en Acerca de LeSa › Buscar actualizaciones.
+**¿De dónde vienen las actualizaciones?** Solo de los [Releases](https://github.com/a3312223/LeSa/releases) de este repositorio; también puedes actualizar desde la app en Acerca de LeSa › Buscar actualizaciones.
 
 Hay más respuestas en las [preguntas frecuentes](../faq.en.md).
 
@@ -153,15 +153,15 @@ Hay más respuestas en las [preguntas frecuentes](../faq.en.md).
 - **Documentación**: toda la documentación y un orden de lectura sugerido están en el [índice de documentación](../README.en.md)
 - **Comunidad**: únete al [chat de grupo en X](https://x.com/i/chat/group_join/g2116926829198246025/48B52j5svL); para escribir al autor por WeChat, escanea el código QR de la app en Acerca de LeSa › Contactar con el autor (menciona «LeSa» en la solicitud)
 - **Sigue al autor**: X [@wangzan101](https://x.com/wangzan101)
-- **Informa de un problema**: [abre un issue](https://github.com/YOUR_GITHUB/LeSa/issues/new/choose); en la app, Acerca de LeSa › Enviar comentarios permite adjuntar información de diagnóstico
+- **Informa de un problema**: [abre un issue](https://github.com/a3312223/LeSa/issues/new/choose); en la app, Acerca de LeSa › Enviar comentarios permite adjuntar información de diagnóstico
 - **Contribuye**: añade conocimiento de uso para una app o un sitio web (texto plano, sin programar) o contribuye con código; consulta la [guía de contribución](../../.github/CONTRIBUTING.md)
 
 ## Star History
 
-<a href="https://star-history.com/#YOUR_GITHUB/LeSa&Date">
+<a href="https://star-history.com/#a3312223/LeSa&Date">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=YOUR_GITHUB/LeSa&type=Date&theme=dark&v=20261101-1623" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=YOUR_GITHUB/LeSa&type=Date&v=20261101-1623" width="600" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=a3312223/LeSa&type=Date&theme=dark&v=20261101-1623" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=a3312223/LeSa&type=Date&v=20261101-1623" width="600" />
   </picture>
 </a>
 
@@ -169,8 +169,8 @@ Hay más respuestas en las [preguntas frecuentes](../faq.en.md).
 
 Gracias a todas las personas que han participado en LeSa:
 
-<a href="https://github.com/YOUR_GITHUB/LeSa/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=YOUR_GITHUB/LeSa&max=100&columns=12" alt="Contributors" />
+<a href="https://github.com/a3312223/LeSa/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=a3312223/LeSa&max=100&columns=12" alt="Contributors" />
 </a>
 
 ## Licencia

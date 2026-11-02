@@ -6,8 +6,8 @@ import java.net.URLEncoder
 
 /** LeSa 对外的地址都在这里:仓库、问题、作者、X 群聊、检查更新用的两个来源。换地址只改这一处。 */
 object LeSaLinks {
-    const val REPO = "https://github.com/YOUR_GITHUB/LeSa"
-    const val REPO_LABEL = "github.com/YOUR_GITHUB/LeSa"
+    const val REPO = "https://github.com/a3312223/LeSa"
+    const val REPO_LABEL = "github.com/a3312223/LeSa"
     const val README = "$REPO#readme"
     const val RELEASES = "$REPO/releases"
     const val NEW_ISSUE = "$REPO/issues/new"
@@ -18,7 +18,7 @@ object LeSaLinks {
     const val X_GROUP = "https://x.com/i/chat/group_join/g2116926829198246025/48B52j5svL"
 
     /** 检查更新只问 GitHub 发布页(不登录,每小时有次数限制)。 */
-    const val LATEST_RELEASE_API = "https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest"
+    const val LATEST_RELEASE_API = "https://api.github.com/repos/a3312223/LeSa/releases/latest"
 
     /** 反馈时预先填进问题模板的设备与版本信息。 */
     data class Device(

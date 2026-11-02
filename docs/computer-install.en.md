@@ -11,16 +11,16 @@ Agents wanting a fixed shortest path: see the [agent quick path](agent-quickstar
 - To let a computer agent that can run commands and supports Skills use LeSa, install the [Skill](#skill-install). It includes its own CLI script, so no separate CLI install is needed.
 - To submit tasks from a terminal or script, install the [CLI](#cli-install), which gives you the `lesa` command.
 
-On the phone: install the APK ([Releases](https://github.com/YOUR_GITHUB/LeSa/releases/latest)), open LeSa once and add a model. **If LeSa only needs to chat, browse the web and work with files, you can skip accessibility and the phone helper, and Android 11 works**; only phone app control needs the phone-control setup in the [setup guide](setup-guide.en.md) (Android 12+). Installing or updating the computer tools does not install or update the APK on the phone.
+On the phone: install the APK ([Releases](https://github.com/a3312223/LeSa/releases/latest)), open LeSa once and add a model. **If LeSa only needs to chat, browse the web and work with files, you can skip accessibility and the phone helper, and Android 11 works**; only phone app control needs the phone-control setup in the [setup guide](setup-guide.en.md) (Android 12+). Installing or updating the computer tools does not install or update the APK on the phone.
 
-Below, `<tag>` means the version tag of the [latest release](https://github.com/YOUR_GITHUB/LeSa/releases/latest) (the `v0.1.x` in its title). Keep the computer tools and the phone APK on the same version where you can.
+Below, `<tag>` means the version tag of the [latest release](https://github.com/a3312223/LeSa/releases/latest) (the `v0.1.x` in its title). Keep the computer tools and the phone APK on the same version where you can.
 
 ## CLI: install
 
 Requires Python 3.10+, Git and pipx; ADB connections also need Android platform-tools. Install:
 
 ```bash
-pipx install 'git+https://github.com/YOUR_GITHUB/LeSa.git@<tag>#subdirectory=tools/lesa'
+pipx install 'git+https://github.com/a3312223/LeSa.git@<tag>#subdirectory=tools/lesa'
 lesa --version
 ```
 
@@ -31,7 +31,7 @@ The pipx package is `lesa-phone-cli` and the command is `lesa`. The CLI has its 
 To update, use the new `<tag>`; to roll back, use the previous one; `--force` replaces the installed copy:
 
 ```bash
-pipx install --force 'git+https://github.com/YOUR_GITHUB/LeSa.git@<tag>#subdirectory=tools/lesa'
+pipx install --force 'git+https://github.com/a3312223/LeSa.git@<tag>#subdirectory=tools/lesa'
 ```
 
 `pipx upgrade` does not move to another tag; use the command above to change versions. To remove:
@@ -44,7 +44,7 @@ pipx uninstall lesa-phone-cli
 
 The Skill is the repository's `tools/lesa` folder: `SKILL.md` tells the agent how to use it, and `scripts/lesa_cli.py` is the bundled CLI, which needs only Python 3.10+ (plus platform-tools for ADB connections).
 
-1. From the [latest release](https://github.com/YOUR_GITHUB/LeSa/releases/latest), download **Source code (zip)** and extract it.
+1. From the [latest release](https://github.com/a3312223/LeSa/releases/latest), download **Source code (zip)** and extract it.
 2. Copy the **whole** `tools/lesa` folder into your agent's skills directory (see that agent's own documentation for where it is). The result should be `<skills-directory>/lesa/SKILL.md`, without an extra nested `lesa` folder.
 3. Check that the bundled script runs:
 

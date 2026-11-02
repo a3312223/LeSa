@@ -7,11 +7,11 @@
 ## 1. 解析最新版本 tag
 
 ```sh
-curl -s https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest   # 取 tag_name
+curl -s https://api.github.com/repos/a3312223/LeSa/releases/latest   # 取 tag_name
 ```
 
 ```powershell
-(Invoke-RestMethod https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest).tag_name
+(Invoke-RestMethod https://api.github.com/repos/a3312223/LeSa/releases/latest).tag_name
 ```
 
 下文 `<tag>` 即该值（如 `v0.1.31`），`<ver>` 是去掉 `v` 的版本号（如 `0.1.31`）。
@@ -19,7 +19,7 @@ curl -s https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest   # 取 ta
 ## 2. 选 CLI 还是 Skill
 
 - Agent 支持 Skill：**默认装 Skill**，它自带 CLI 脚本。
-- 否则装 CLI：`pipx install 'git+https://github.com/YOUR_GITHUB/LeSa.git@<tag>#subdirectory=tools/lesa'`。
+- 否则装 CLI：`pipx install 'git+https://github.com/a3312223/LeSa.git@<tag>#subdirectory=tools/lesa'`。
 
 ## 3. 安装 Skill
 
@@ -28,7 +28,7 @@ curl -s https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest   # 取 ta
 POSIX：
 
 ```sh
-curl -L -o lesa.zip https://github.com/YOUR_GITHUB/LeSa/archive/refs/tags/<tag>.zip
+curl -L -o lesa.zip https://github.com/a3312223/LeSa/archive/refs/tags/<tag>.zip
 unzip -q lesa.zip -d lesa-src
 mkdir -p <技能目录> && cp -R lesa-src/LeSa-<ver>/tools/lesa <技能目录>/lesa
 python3 <技能目录>/lesa/scripts/lesa_cli.py --version
@@ -37,7 +37,7 @@ python3 <技能目录>/lesa/scripts/lesa_cli.py --version
 Windows PowerShell：
 
 ```powershell
-Invoke-WebRequest https://github.com/YOUR_GITHUB/LeSa/archive/refs/tags/<tag>.zip -OutFile lesa.zip
+Invoke-WebRequest https://github.com/a3312223/LeSa/archive/refs/tags/<tag>.zip -OutFile lesa.zip
 Expand-Archive lesa.zip -DestinationPath lesa-src
 New-Item -ItemType Directory -Force "<技能目录>" | Out-Null
 Copy-Item -Recurse lesa-src\LeSa-<ver>\tools\lesa "<技能目录>\lesa"

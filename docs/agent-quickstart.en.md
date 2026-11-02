@@ -7,11 +7,11 @@ For AI agents on a computer: follow these fixed steps to install LeSa and connec
 ## 1. Resolve the latest release tag
 
 ```sh
-curl -s https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest   # read tag_name
+curl -s https://api.github.com/repos/a3312223/LeSa/releases/latest   # read tag_name
 ```
 
 ```powershell
-(Invoke-RestMethod https://api.github.com/repos/YOUR_GITHUB/LeSa/releases/latest).tag_name
+(Invoke-RestMethod https://api.github.com/repos/a3312223/LeSa/releases/latest).tag_name
 ```
 
 Below, `<tag>` is that value (e.g. `v0.1.31`) and `<ver>` is the version without the `v` (e.g. `0.1.31`).
@@ -19,7 +19,7 @@ Below, `<tag>` is that value (e.g. `v0.1.31`) and `<ver>` is the version without
 ## 2. CLI or Skill
 
 - Agent supports skills: **install the Skill by default**; it bundles the CLI script.
-- Otherwise install the CLI: `pipx install 'git+https://github.com/YOUR_GITHUB/LeSa.git@<tag>#subdirectory=tools/lesa'`.
+- Otherwise install the CLI: `pipx install 'git+https://github.com/a3312223/LeSa.git@<tag>#subdirectory=tools/lesa'`.
 
 ## 3. Install the Skill
 
@@ -28,7 +28,7 @@ Below, `<tag>` is that value (e.g. `v0.1.31`) and `<ver>` is the version without
 POSIX:
 
 ```sh
-curl -L -o lesa.zip https://github.com/YOUR_GITHUB/LeSa/archive/refs/tags/<tag>.zip
+curl -L -o lesa.zip https://github.com/a3312223/LeSa/archive/refs/tags/<tag>.zip
 unzip -q lesa.zip -d lesa-src
 mkdir -p <skills-directory> && cp -R lesa-src/LeSa-<ver>/tools/lesa <skills-directory>/lesa
 python3 <skills-directory>/lesa/scripts/lesa_cli.py --version
@@ -37,7 +37,7 @@ python3 <skills-directory>/lesa/scripts/lesa_cli.py --version
 Windows PowerShell:
 
 ```powershell
-Invoke-WebRequest https://github.com/YOUR_GITHUB/LeSa/archive/refs/tags/<tag>.zip -OutFile lesa.zip
+Invoke-WebRequest https://github.com/a3312223/LeSa/archive/refs/tags/<tag>.zip -OutFile lesa.zip
 Expand-Archive lesa.zip -DestinationPath lesa-src
 New-Item -ItemType Directory -Force "<skills-directory>" | Out-Null
 Copy-Item -Recurse lesa-src\LeSa-<ver>\tools\lesa "<skills-directory>\lesa"

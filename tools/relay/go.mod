@@ -1,4 +1,4 @@
-module github.com/YOUR_GITHUB/LeSa/tools/relay
+module github.com/a3312223/LeSa/tools/relay
 
 go 1.23
 

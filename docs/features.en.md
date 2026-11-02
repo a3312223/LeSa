@@ -91,7 +91,7 @@ Computer AI tools can use **CLI + Skill or MCP** to hand LeSa tasks, check progr
 Connect the phone to your computer with a USB cable, turn on USB debugging on the phone (don't change other switches in Developer options unless the agent asks you to: some can erase the phone), and send this sentence to an AI agent on the computer that can run commands:
 
 ```
-Follow https://github.com/YOUR_GITHUB/LeSa/blob/main/docs/install-with-agent.en.md to install LeSa on the Android phone connected over USB.
+Follow https://github.com/a3312223/LeSa/blob/main/docs/install-with-agent.en.md to install LeSa on the Android phone connected over USB.
 ```
 
 It checks the phone, downloads and installs LeSa, turns on the permissions it needs, and stops to tell you whenever something needs a tap on the phone. You enter your API key in LeSa yourself; it never goes through the agent. If you also ask for computer access, the agent configures the access method you choose. The steps are in [Installing LeSa with an AI agent](install-with-agent.en.md).

@@ -6,7 +6,7 @@
 
 AI Agent 请直接看 [Agent 快速路径](agent-quickstart.md)。
 
-手机端的前提：装好 APK（[Releases](https://github.com/YOUR_GITHUB/LeSa/releases/latest)）、打开过一次 LeSa、配好模型。只让 LeSa 聊天、上网、处理文件时，安卓 11 就行；要它操作手机 App，还要按[设置指南](setup-guide.md)完成手机操作设置（安卓 12+）。
+手机端的前提：装好 APK（[Releases](https://github.com/a3312223/LeSa/releases/latest)）、打开过一次 LeSa、配好模型。只让 LeSa 聊天、上网、处理文件时，安卓 11 就行；要它操作手机 App，还要按[设置指南](setup-guide.md)完成手机操作设置（安卓 12+）。
 
 ## 第一步：选入口（CLI + Skill 或 MCP）
 

@@ -15,7 +15,7 @@ import org.junit.Test
 class AboutCopyTest {
     @get:Rule val texts = ChineseTexts()
 
-    private val r020 = ReleaseInfo("0.2.0", "LeSa 0.2.0", "- 新", "2026-11-05", "https://github.com/YOUR_GITHUB/LeSa/releases/tag/v0.2.0", null)
+    private val r020 = ReleaseInfo("0.2.0", "LeSa 0.2.0", "- 新", "2026-11-05", "https://github.com/a3312223/LeSa/releases/tag/v0.2.0", null)
     private val r010 = r020.copy(version = "0.1.0")
 
     @Test

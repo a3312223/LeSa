@@ -10,21 +10,21 @@ class ApkIntegrityTest {
     @get:Rule val temp = TemporaryFolder()
 
     @Test fun acceptsOfficialApk() {
-        ApkIntegrity.requireOfficialUrl("https://github.com/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.apk")
+        ApkIntegrity.requireOfficialUrl("https://github.com/a3312223/LeSa/releases/download/v0.2.0/LeSa.apk")
     }
 
     @Test fun rejectsUntrustedDownloads() {
         for (url in listOf(
-            "http://github.com/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.apk",
-            "https://github.com.evil.test/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.apk",
+            "http://github.com/a3312223/LeSa/releases/download/v0.2.0/LeSa.apk",
+            "https://github.com.evil.test/a3312223/LeSa/releases/download/v0.2.0/LeSa.apk",
             "https://github.com/other/LeSa/releases/download/v0.2.0/LeSa.apk",
-            "https://github.com/YOUR_GITHUB/LeSa/releases/download/../../other.apk",
-            "https://github.com/YOUR_GITHUB/LeSa/releases/download/%2e%2e/%2E%2e/%2e%2e/%2e%2e/other/x.apk",
-            "https://objects.githubusercontent.com/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.apk",
-            "https://github.com/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.zip",
-            "https://github.com/YOUR_GITHUB/LeSa/releases/tag/v0.2.0",
-            "https://user:pass@github.com/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.apk",
-            "https://github.com:8443/YOUR_GITHUB/LeSa/releases/download/v0.2.0/LeSa.apk",
+            "https://github.com/a3312223/LeSa/releases/download/../../other.apk",
+            "https://github.com/a3312223/LeSa/releases/download/%2e%2e/%2E%2e/%2e%2e/%2e%2e/other/x.apk",
+            "https://objects.githubusercontent.com/a3312223/LeSa/releases/download/v0.2.0/LeSa.apk",
+            "https://github.com/a3312223/LeSa/releases/download/v0.2.0/LeSa.zip",
+            "https://github.com/a3312223/LeSa/releases/tag/v0.2.0",
+            "https://user:pass@github.com/a3312223/LeSa/releases/download/v0.2.0/LeSa.apk",
+            "https://github.com:8443/a3312223/LeSa/releases/download/v0.2.0/LeSa.apk",
         )) rejects { ApkIntegrity.requireOfficialUrl(url) }
     }
 
